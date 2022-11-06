@@ -1,4 +1,4 @@
-package sprint;
+package plataforma;
 
 public class Plataforma {
 

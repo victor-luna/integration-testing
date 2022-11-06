@@ -1,4 +1,7 @@
-package sprint;
+package tarefa;
+
+import cliente.Cliente;
+import sprint.Sprint;
 
 import java.util.Date;
 

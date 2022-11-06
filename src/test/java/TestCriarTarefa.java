@@ -2,9 +2,9 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
-import sprint.Cliente;
+import cliente.Cliente;
 import sprint.Sprint;
-import sprint.Tarefa;
+import tarefa.Tarefa;
 
 import static org.mockito.Mockito.*;
 

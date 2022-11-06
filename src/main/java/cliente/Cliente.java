@@ -1,4 +1,4 @@
-package sprint;
+package cliente;
 
 public class Cliente {
 
