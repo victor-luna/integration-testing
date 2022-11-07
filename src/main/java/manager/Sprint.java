@@ -15,12 +15,15 @@ public class Sprint {
 
     public boolean sprintAgendada;
 
-    public Sprint(int id, String mesDaSprint, String tempoDaSprint, int sucessoNaSprint, boolean sprintAgendada) {
+    private boolean squadDedicadaExclusivamente;
+
+    public Sprint(int id, String mesDaSprint, String tempoDaSprint, int sucessoNaSprint, boolean sprintAgendada, boolean squadDedicadaExclusivamente) {
         this.id = id;
         this.mesDaSprint = mesDaSprint;
         this.tempoDaSprint = tempoDaSprint;
         this.sucessoNaSprint = sucessoNaSprint;
         this.sprintAgendada = sprintAgendada;
+        this.squadDedicadaExclusivamente = squadDedicadaExclusivamente;
     }
 
     public Sprint() {
@@ -66,12 +69,30 @@ public class Sprint {
         this.id = id;
     }
 
+    public boolean isSquadDedicadaExclusivamente() {
+        return squadDedicadaExclusivamente;
+    }
+
+    public void setSquadDedicadaExclusivamente(boolean squadDedicadaExclusivamente) {
+        this.squadDedicadaExclusivamente = squadDedicadaExclusivamente;
+    }
+
     public boolean possibilidadeDeNovaSprint(Tarefa tarefa, Cliente cliente) {
         if(!tarefa.isTarefasRemanescentes() && cliente.isContratoVigente()) {
-            System.out.println("Sprint nº 01 foi iniciada com sucesso");
+            System.out.println("Sprint nº 01 foi iniciada com sucesso.");
             return true;
         } else {
             System.out.println("Verifique se o contrato está viagente e se existem tarefas remanescentes!");
+            return false;
+        }
+    }
+
+    public boolean squadCustomizada(Tarefa tarefa, Cliente cliente) {
+        if (!tarefa.squadDefinida && !cliente.isClienteRenovouContrato()) {
+            System.out.println("Os índices estão ruins, é recomendável uma squad dedicada para esse cliente.");
+            return true;
+        } else {
+            System.out.println("O cliente não necessita de uma squad dedicada no momento.");
             return false;
         }
     }

@@ -10,7 +10,7 @@ import control.Tarefa;
 import static org.mockito.Mockito.when;
 
 public class TestCaptarCliente {
-
+    Cliente cliente = new Cliente();
     @Test
     public void testarCaptacaoDoCliente() {
         Tarefa tarefa = Mockito.mock(Tarefa.class);
@@ -19,8 +19,8 @@ public class TestCaptarCliente {
         Sprint sprint = Mockito.mock(Sprint.class);
         when(sprint.getSucessoNaSprint()).thenReturn(3);
 
-        Cliente cliente = new Cliente();
-
         Assertions.assertFalse(cliente.captarCliente(tarefa, sprint));
+
+        Mockito.verify(sprint, Mockito.atLeast(1)).getSucessoNaSprint();
     }
 }

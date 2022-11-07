@@ -28,5 +28,7 @@ public class TestAgendarSprint {
         Sprint sprint = new Sprint();
 
         Assertions.assertTrue(sprint.possibilidadeDeNovaSprint(tarefa, cliente));
+
+        Mockito.verify(cliente, Mockito.atMost(2)).isContratoVigente();
     }
 }
