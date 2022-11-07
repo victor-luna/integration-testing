@@ -1,7 +1,7 @@
-package tarefa;
+package control;
 
-import cliente.Cliente;
-import sprint.Sprint;
+import user.Cliente;
+import manager.Sprint;
 
 import java.util.Date;
 
@@ -21,6 +21,9 @@ public class Tarefa {
     public String cliente;
 
     public int dificuldade;
+
+    private boolean tarefasRemanescentes;
+
 
     public Tarefa(String criadoEm, String prioridade, String assinanteResponsavel, String comentario, String squad, boolean squadDefinida, String cliente, int dificuldade) {
         this.criadoEm = criadoEm;
@@ -99,6 +102,14 @@ public class Tarefa {
 
     public void setSquadDefinida(boolean squadDefinida) {
         this.squadDefinida = squadDefinida;
+    }
+
+    public boolean isTarefasRemanescentes() {
+        return tarefasRemanescentes;
+    }
+
+    public void setTarefasRemanescentes(boolean tarefasRemanescentes) {
+        this.tarefasRemanescentes = tarefasRemanescentes;
     }
 
     public boolean criarTarefa(Cliente cliente, Sprint sprint) {

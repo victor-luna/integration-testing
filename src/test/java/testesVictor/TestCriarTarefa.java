@@ -1,16 +1,19 @@
+package testesVictor;
+
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
-import cliente.Cliente;
-import sprint.Sprint;
-import tarefa.Tarefa;
+import user.Cliente;
+import manager.Sprint;
+import control.Tarefa;
 
 import static org.mockito.Mockito.*;
 
 public class TestCriarTarefa {
 
     Tarefa tarefa;
+
 
     @BeforeEach
     public void setUp() {
@@ -27,5 +30,4 @@ public class TestCriarTarefa {
 
         Assertions.assertEquals(true, tarefa.criarTarefa(cliente, sprint));
     }
-
 }

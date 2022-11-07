@@ -1,4 +1,7 @@
-package cliente;
+package user;
+
+import manager.Sprint;
+import control.Tarefa;
 
 public class Cliente {
 
@@ -26,7 +29,6 @@ public class Cliente {
     }
 
     public Cliente() {
-
     }
 
     public String getCpf() {
@@ -67,6 +69,27 @@ public class Cliente {
 
     public void setClienteRenovouContrato(boolean clienteRenovouContrato) {
         this.clienteRenovouContrato = clienteRenovouContrato;
+    }
+
+
+    public boolean captarCliente(Tarefa tarefa, Sprint sprint) {
+        if(tarefa.isSquadDefinida() && sprint.getSucessoNaSprint() > 4) {
+            System.out.println("Squad definida e sucesso na sprint anterior, captação de cliente autorizada!");
+            return true;
+        } else {
+            System.out.println("Não foi possível captar o cliente, verifique se a squad já está definida e se obteve sucesso na sprint anterior");
+            return false;
+        }
+    }
+
+    public String taxaDeSucessoNaSprintPorCliente(Sprint sprint, Tarefa tarefa) {
+        if(sprint.getSucessoNaSprint() <= 3 && tarefa.getDificuldade() > 3) {
+            return "Ruim";
+        } else if (sprint.getSucessoNaSprint() == 4 && tarefa.getDificuldade() > 3) {
+            return "Boa";
+        } else {
+            return "Muito boa";
+        }
     }
 
 

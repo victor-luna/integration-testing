@@ -1,4 +1,4 @@
-package resultado;
+package manager;
 
 public class Resultado {
 

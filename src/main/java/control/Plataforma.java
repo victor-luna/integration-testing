@@ -1,4 +1,4 @@
-package plataforma;
+package control;
 
 public class Plataforma {
 
